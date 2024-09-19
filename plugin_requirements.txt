@@ -1,0 +1,3 @@
+netboxlabs-netbox-branching
+netbox-topology-views
+https://github.com/ArnesSI/netbox-inventory/archive/master.tar.gz
