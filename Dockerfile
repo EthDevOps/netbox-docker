@@ -7,4 +7,5 @@ RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location -r /opt/netbox/p
 COPY config/configuration.py /etc/netbox/config/configuration.py
 COPY config/plugins.py /etc/netbox/config/plugins.py
 COPY config/local_settings.py /opt/netbox/netbox/netbox/local_settings.py
-RUN SECRET_KEY="dummydummydummydummydummydummydummydummydummydummy" /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py collectstatic --no-input
+RUN mkdir -p /opt/netbox/netbox/static/netbox_topology_views/img
+RUN SECRET_KEY="dummydummydummydummydummydummydumminitial commiinitial committydummydummydummy" /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py collectstatic --no-input
