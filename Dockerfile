@@ -4,6 +4,10 @@ COPY ./plugin_requirements.txt /opt/netbox/
 ENV VIRTUAL_ENV=/opt/netbox/venv
 RUN /usr/local/bin/uv pip install -r /opt/netbox/plugin_requirements.txt
 
+# Fix For Topology Views (Remove once https://github.com/netbox-community/netbox-topology-views/pull/608 is added )
+RUN sed -i 's/settings\.VERSION/settings\.RELEASE\.version/g' /opt/netbox/venv/lib/python3.12/site-packages/netbox_topology_views/template_content.py
+
+
 # These lines are only required if your plugin has its own static files.
 COPY config/configuration.py /etc/netbox/config/configuration.py
 COPY config/plugins.py /etc/netbox/config/plugins.py
